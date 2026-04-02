@@ -1,0 +1,114 @@
+// components/gallery-section.jsx
+"use client";
+
+import { useState } from "react";
+import { Sparkles } from "lucide-react";
+
+const galleryItems = [
+  {
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop",
+    title: "Bunga Impian",
+    category: "Nail Art",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1735236007245-9dc6e28bbe56?q=80&w=1046&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Gel Mewah",
+    category: "Gel",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1572814601679-4ef8f7b5ebd1?q=80&w=705&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Keajaiban 3D",
+    category: "3D Art",
+  },
+  {
+    id: 4,
+    image:
+      "https://images.unsplash.com/photo-1648844421727-cde6c4246b13?q=80&w=680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Elegan Prancis",
+    category: "French",
+  },
+  {
+    id: 5,
+    image:
+      "https://images.unsplash.com/photo-1754799670312-8e7da8e40ad7?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Seni Marmer",
+    category: "Nail Art",
+  },
+  {
+    id: 6,
+    image:
+      "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&h=500&fit=crop",
+    title: "Mata Kucing",
+    category: "Gel",
+  },
+];
+
+export function GallerySection() {
+  const [hoveredId, setHoveredId] = useState(null);
+
+  return (
+    <section className="py-24 bg-gradient-to-br from-pink-50 via-white to-orange-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 bg-pink-100 rounded-full px-4 py-1 mb-4">
+            <Sparkles className="w-4 h-4 text-pink-500" />
+            <span className="text-sm font-medium text-pink-600">
+              Portofolio Kami
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Karya Terbaru
+          </h2>
+          <p className="text-gray-500">
+            Lihat hasil karya nail art terbaru yang disukai oleh klien kami
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryItems.map((item) => (
+            <div
+              key={item.id}
+              className="group relative overflow-hidden rounded-2xl cursor-pointer"
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              <div className="aspect-square relative">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-pink-600/90 via-pink-500/50 to-transparent transition-all duration-300 flex flex-col justify-end p-6 ${hoveredId === item.id ? "opacity-100" : "opacity-0"}`}
+              >
+                <span className="text-pink-200 text-sm font-medium mb-1">
+                  {item.category}
+                </span>
+                <h3 className="text-white font-bold text-xl">{item.title}</h3>
+                <button className="mt-3 text-white text-sm flex items-center gap-1 group">
+                  Lihat Detail
+                  <span className="group-hover:translate-x-1 transition">
+                    →
+                  </span>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <button className="px-8 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105">
+            Lihat Semua Galeri
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
