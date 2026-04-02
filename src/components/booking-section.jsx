@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Clock, Send } from "lucide-react";
 
 export function BookingSection() {
   const [formData, setFormData] = useState({
@@ -27,7 +27,6 @@ export function BookingSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Format pesan WhatsApp
     const message = `*📋 BOOKING NAIL ART STUDIO*%0A%0A
 *Data Diri:*%0A
 👤 Nama: ${formData.name}%0A
@@ -43,15 +42,14 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
 
 _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
 
-    // Nomor WhatsApp (tanpa tanda +, 0, atau spasi)
     const phoneNumber = "62882006487100";
-
-    // Buat URL WhatsApp
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
-    // Buka WhatsApp di tab baru
     window.open(whatsappUrl, "_blank");
   };
+
+  const inputClass =
+    "w-full h-[48px] px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border";
 
   return (
     <section className="py-24 bg-white">
@@ -112,19 +110,6 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-6 pt-6 border-t border-pink-200">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-2">
-                      <div className="w-8 h-8 rounded-full bg-pink-300 ring-2 ring-white" />
-                      <div className="w-8 h-8 rounded-full bg-purple-300 ring-2 ring-white" />
-                      <div className="w-8 h-8 rounded-full bg-orange-300 ring-2 ring-white" />
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      Dipercaya 500+ klien
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -134,7 +119,8 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                 onSubmit={handleSubmit}
                 className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
               >
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Nama */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nama Lengkap *
@@ -146,11 +132,12 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className={inputClass}
                       placeholder="Masukkan nama lengkap"
                     />
                   </div>
 
+                  {/* Telepon */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nomor Telepon *
@@ -162,11 +149,12 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className={inputClass}
                       placeholder="08123456789"
                     />
                   </div>
 
+                  {/* Layanan */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Pilih Layanan *
@@ -177,7 +165,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, service: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className={inputClass}
                     >
                       <option value="">Pilih layanan</option>
                       <option value="basic">Basic Manicure - Rp 75.000</option>
@@ -189,6 +177,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                     </select>
                   </div>
 
+                  {/* Tanggal */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Tanggal Pilihan *
@@ -200,10 +189,11 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, date: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className={inputClass}
                     />
                   </div>
 
+                  {/* Waktu */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Waktu Pilihan *
@@ -215,10 +205,11 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, time: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className={inputClass}
                     />
                   </div>
 
+                  {/* Catatan */}
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Permintaan Khusus
@@ -229,7 +220,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, notes: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border"
                       placeholder="Desain yang diinginkan atau preferensi khusus?"
                     />
                   </div>
