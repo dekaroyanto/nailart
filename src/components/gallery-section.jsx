@@ -92,12 +92,6 @@ export function GallerySection() {
                   {item.category}
                 </span>
                 <h3 className="text-white font-bold text-xl">{item.title}</h3>
-                <button className="mt-3 text-white text-sm flex items-center gap-1 group">
-                  Lihat Detail
-                  <span className="group-hover:translate-x-1 transition">
-                    →
-                  </span>
-                </button>
               </div>
             </div>
           ))}
