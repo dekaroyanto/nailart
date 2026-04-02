@@ -1,4 +1,3 @@
-// components/booking-section.jsx
 "use client";
 
 import { useState } from "react";
@@ -28,22 +27,21 @@ export function BookingSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Format pesan WhatsApp dengan emoji (tanpa garis)
-    const message = `📋 *BOOKING NAIL ART STUDIO* 📋%0A%0A
-👤 *DATA DIRI*%0A
-Nama: ${formData.name}%0A
-Telepon: ${formData.phone}%0A%0A
+    // Format pesan WhatsApp
+    const message = `*📋 BOOKING NAIL ART STUDIO*%0A%0A
+*Data Diri:*%0A
+👤 Nama: ${formData.name}%0A
+📞 Telepon: ${formData.phone}%0A%0A
 
-💅 *DETAIL BOOKING*%0A
-Layanan: ${getServiceName(formData.service)}%0A
-Tanggal: ${formData.date}%0A
-Waktu: ${formData.time}%0A%0A
+*Detail Booking:*%0A
+💅 Layanan: ${getServiceName(formData.service)}%0A
+📅 Tanggal: ${formData.date}%0A
+⏰ Waktu: ${formData.time}%0A%0A
 
-📝 *CATATAN TAMBAHAN*%0A
+*📝 Catatan Tambahan:*%0A
 ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
 
-✅ *Terima kasih, kami akan segera mengkonfirmasi booking Anda.*%0A%0A
-⭐ *NailArt Studio* ⭐`;
+_*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
 
     // Nomor WhatsApp (tanpa tanda +, 0, atau spasi)
     const phoneNumber = "62882006487100";
@@ -75,7 +73,7 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="bg-linear-to-br from-pink-50 to-orange-50 rounded-2xl p-6 sticky top-24">
+              <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-2xl p-6 sticky top-24">
                 <h3 className="text-xl font-bold text-gray-800 mb-6">
                   Kunjungi Kami
                 </h3>
@@ -96,16 +94,6 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
                     <div>
                       <p className="font-medium text-gray-800">Telepon</p>
                       <p className="text-sm text-gray-500">0882006487100</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-pink-500 mt-0.5" />
-                    <div>
-                      <p className="font-medium text-gray-800">Email</p>
-                      <p className="text-sm text-gray-500">
-                        dekaroy05@gmail.com
-                      </p>
                     </div>
                   </div>
 
@@ -147,7 +135,7 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
                 className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
               >
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="md:col-span-2">
+                  <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nama Lengkap *
                     </label>
@@ -163,7 +151,7 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
                     />
                   </div>
 
-                  <div className="md:col-span-2">
+                  <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nomor Telepon *
                     </label>
@@ -179,7 +167,7 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
                     />
                   </div>
 
-                  <div className="md:col-span-2">
+                  <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Pilih Layanan *
                     </label>
@@ -249,7 +237,7 @@ ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
 
                 <Button
                   type="submit"
-                  className="w-full mt-6 bg-linear-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white py-6 rounded-xl text-lg font-semibold"
+                  className="w-full mt-6 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white py-6 rounded-xl text-lg font-semibold"
                 >
                   Kirim Booking via WhatsApp
                   <Send className="ml-2 w-5 h-5" />
