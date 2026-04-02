@@ -1,5 +1,14 @@
 // components/footer.jsx
+"use client";
+
 export function Footer() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-400">
       <div className="container mx-auto px-4 py-12">
@@ -9,59 +18,69 @@ export function Footer() {
               NailArt Studio
             </h3>
             <p className="text-sm">
-              Transforming nails into masterpieces with creativity and precision
-              since 2019.
+              Mengubah kuku menjadi mahakarya dengan kreativitas dan presisi.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4">Tautan Cepat</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-pink-400 transition">
-                  Home
-                </a>
+                <button
+                  onClick={() => scrollToSection("hero")}
+                  className="hover:text-pink-400 transition cursor-pointer"
+                >
+                  Beranda
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-pink-400 transition">
-                  Services
-                </a>
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="hover:text-pink-400 transition cursor-pointer"
+                >
+                  Layanan
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-pink-400 transition">
-                  Gallery
-                </a>
+                <button
+                  onClick={() => scrollToSection("gallery")}
+                  className="hover:text-pink-400 transition cursor-pointer"
+                >
+                  Galeri
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-pink-400 transition">
-                  Book Now
-                </a>
+                <button
+                  onClick={() => scrollToSection("booking")}
+                  className="hover:text-pink-400 transition cursor-pointer"
+                >
+                  Booking
+                </button>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
+            <h4 className="text-white font-semibold mb-4">Alamat</h4>
             <ul className="space-y-2 text-sm">
-              <li>123 Beauty Street</li>
-              <li>New York, NY 10001</li>
-              <li>+1 (555) 123-4567</li>
-              <li>hello@nailartstudio.com</li>
+              <li>Permata Harjamukti</li>
+              <li>Kota Cirebon, Jawa Barat</li>
+              <li>0882006487100</li>
+              <li>dekaroy05@gmail.com</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Opening Hours</h4>
+            <h4 className="text-white font-semibold mb-4">Jam Operasional</h4>
             <ul className="space-y-2 text-sm">
-              <li>Monday - Friday: 10am - 8pm</li>
-              <li>Saturday: 10am - 6pm</li>
-              <li>Sunday: 11am - 5pm</li>
+              <li>Senin-Jumat: 10.00 - 20.00</li>
+              <li>Sabtu-Minggu: 10.00 - 18.00</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
-          <p>&copy; 2024 NailArt Studio. All rights reserved.</p>
+          <p>&copy; 2026 NailArt Studio</p>
         </div>
       </div>
     </footer>

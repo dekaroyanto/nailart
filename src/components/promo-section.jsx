@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Gift, Sparkles } from "lucide-react";
 
 export function PromoSection() {
+  const scrollToBooking = () => {
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-20 bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -27,15 +34,12 @@ export function PromoSection() {
             apapun. Penawaran terbatas!
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-6 rounded-full text-lg font-semibold shadow-lg">
+            <Button
+              onClick={scrollToBooking}
+              className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-6 rounded-full text-lg font-semibold shadow-lg cursor-pointer"
+            >
               Klaim Promo
               <Sparkles className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-full text-lg"
-            >
-              Info Lebih Lanjut
             </Button>
           </div>
         </div>

@@ -10,8 +10,12 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <ServicesSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
+      <div id="services">
+        <ServicesSection />
+      </div>
       <div id="gallery">
         <GallerySection />
       </div>

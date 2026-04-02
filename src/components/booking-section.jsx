@@ -8,7 +8,6 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 export function BookingSection() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     service: "",
     date: "",
@@ -29,22 +28,22 @@ export function BookingSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Format pesan WhatsApp
-    const message = `*📋 BOOKING NAIL ART STUDIO*%0A%0A
-*Data Diri:*%0A
-👤 Nama: ${formData.name}%0A
-📧 Email: ${formData.email}%0A
-📞 Telepon: ${formData.phone}%0A%0A
+    // Format pesan WhatsApp dengan emoji (tanpa garis)
+    const message = `📋 *BOOKING NAIL ART STUDIO* 📋%0A%0A
+👤 *DATA DIRI*%0A
+Nama: ${formData.name}%0A
+Telepon: ${formData.phone}%0A%0A
 
-*Detail Booking:*%0A
-💅 Layanan: ${getServiceName(formData.service)}%0A
-📅 Tanggal: ${formData.date}%0A
-⏰ Waktu: ${formData.time}%0A%0A
+💅 *DETAIL BOOKING*%0A
+Layanan: ${getServiceName(formData.service)}%0A
+Tanggal: ${formData.date}%0A
+Waktu: ${formData.time}%0A%0A
 
-*📝 Catatan Tambahan:*%0A
+📝 *CATATAN TAMBAHAN*%0A
 ${formData.notes || "Tidak ada catatan khusus"}%0A%0A
 
-_*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
+✅ *Terima kasih, kami akan segera mengkonfirmasi booking Anda.*%0A%0A
+⭐ *NailArt Studio* ⭐`;
 
     // Nomor WhatsApp (tanpa tanda +, 0, atau spasi)
     const phoneNumber = "62882006487100";
@@ -76,7 +75,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-2xl p-6 sticky top-24">
+              <div className="bg-linear-to-br from-pink-50 to-orange-50 rounded-2xl p-6 sticky top-24">
                 <h3 className="text-xl font-bold text-gray-800 mb-6">
                   Kunjungi Kami
                 </h3>
@@ -148,7 +147,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                 className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
               >
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nama Lengkap *
                     </label>
@@ -164,23 +163,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
-                      placeholder="email@contoh.com"
-                    />
-                  </div>
-
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nomor Telepon *
                     </label>
@@ -192,11 +175,11 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                         setFormData({ ...formData, phone: e.target.value })
                       }
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
-                      placeholder="0882 0064 87100"
+                      placeholder="08123456789"
                     />
                   </div>
 
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Pilih Layanan *
                     </label>
@@ -266,7 +249,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
 
                 <Button
                   type="submit"
-                  className="w-full mt-6 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white py-6 rounded-xl text-lg font-semibold"
+                  className="w-full mt-6 bg-linear-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white py-6 rounded-xl text-lg font-semibold"
                 >
                   Kirim Booking via WhatsApp
                   <Send className="ml-2 w-5 h-5" />
