@@ -62,8 +62,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
             Reservasi Sekarang
           </h2>
           <p className="text-gray-500">
-            Isi formulir di bawah ini dan kami akan menghubungi Anda dalam 24
-            jam
+            Isi formulir di bawah ini untuk melakukan booking
           </p>
         </div>
 

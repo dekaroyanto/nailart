@@ -98,10 +98,6 @@ export function ServicesSection() {
                 <span className="text-2xl font-bold text-pink-500">
                   {service.price}
                 </span>
-                <span className="text-pink-400 group-hover:text-pink-600 flex items-center gap-1 text-sm font-medium cursor-pointer">
-                  Booking
-                  <ArrowRight className="w-4 h-4" />
-                </span>
               </div>
             </div>
           ))}

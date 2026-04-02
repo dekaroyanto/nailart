@@ -59,7 +59,7 @@ export function GallerySection() {
           <div className="inline-flex items-center gap-2 bg-pink-100 rounded-full px-4 py-1 mb-4">
             <Sparkles className="w-4 h-4 text-pink-500" />
             <span className="text-sm font-medium text-pink-600">
-              Portofolio Kami
+              Karya Kami
             </span>
           </div>
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -101,12 +101,6 @@ export function GallerySection() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105">
-            Lihat Semua Galeri
-          </button>
         </div>
       </div>
     </section>
