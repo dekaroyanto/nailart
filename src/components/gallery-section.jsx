@@ -9,43 +9,31 @@ const galleryItems = [
     id: 1,
     image:
       "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop",
-    title: "Bunga Impian",
-    category: "Nail Art",
   },
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1735236007245-9dc6e28bbe56?q=80&w=1046&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Gel Mewah",
-    category: "Gel",
+      "https://images.unsplash.com/photo-1735236007245-9dc6e28bbe56?q=80&w=1046&auto=format&fit=crop",
   },
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1572814601679-4ef8f7b5ebd1?q=80&w=705&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Keajaiban 3D",
-    category: "3D Art",
+      "https://images.unsplash.com/photo-1572814601679-4ef8f7b5ebd1?q=80&w=705&auto=format&fit=crop",
   },
   {
     id: 4,
     image:
-      "https://images.unsplash.com/photo-1648844421727-cde6c4246b13?q=80&w=680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Elegan Prancis",
-    category: "French",
+      "https://images.unsplash.com/photo-1648844421727-cde6c4246b13?q=80&w=680&auto=format&fit=crop",
   },
   {
     id: 5,
     image:
-      "https://images.unsplash.com/photo-1754799670312-8e7da8e40ad7?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Seni Marmer",
-    category: "Nail Art",
+      "https://images.unsplash.com/photo-1754799670312-8e7da8e40ad7?q=80&w=764&auto=format&fit=crop",
   },
   {
     id: 6,
     image:
       "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&h=500&fit=crop",
-    title: "Mata Kucing",
-    category: "Gel",
   },
 ];
 
@@ -84,14 +72,6 @@ export function GallerySection() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              </div>
-              <div
-                className={`absolute inset-0 bg-gradient-to-t from-pink-600/90 via-pink-500/50 to-transparent transition-all duration-300 flex flex-col justify-end p-6 ${hoveredId === item.id ? "opacity-100" : "opacity-0"}`}
-              >
-                <span className="text-pink-200 text-sm font-medium mb-1">
-                  {item.category}
-                </span>
-                <h3 className="text-white font-bold text-xl">{item.title}</h3>
               </div>
             </div>
           ))}
