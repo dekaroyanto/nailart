@@ -49,7 +49,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
   };
 
   const inputClass =
-    "w-full h-[48px] px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border";
+    "w-full min-w-0 h-[48px] px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border appearance-none";
 
   return (
     <section className="py-24 bg-white">
@@ -121,7 +121,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Nama */}
-                  <div>
+                  <div className="w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nama Lengkap *
                     </label>
@@ -138,7 +138,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                   </div>
 
                   {/* Telepon */}
-                  <div>
+                  <div className="w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nomor Telepon *
                     </label>
@@ -155,7 +155,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                   </div>
 
                   {/* Layanan */}
-                  <div>
+                  <div className="w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Pilih Layanan *
                     </label>
@@ -178,39 +178,45 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                   </div>
 
                   {/* Tanggal */}
-                  <div>
+                  <div className="w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Tanggal Pilihan *
                     </label>
-                    <input
-                      type="date"
-                      required
-                      value={formData.date}
-                      onChange={(e) =>
-                        setFormData({ ...formData, date: e.target.value })
-                      }
-                      className={inputClass}
-                    />
+                    <div className="w-full">
+                      <input
+                        type="date"
+                        required
+                        value={formData.date}
+                        onChange={(e) =>
+                          setFormData({ ...formData, date: e.target.value })
+                        }
+                        className={inputClass + " pr-3"}
+                        style={{ WebkitAppearance: "none" }}
+                      />
+                    </div>
                   </div>
 
                   {/* Waktu */}
-                  <div>
+                  <div className="w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Waktu Pilihan *
                     </label>
-                    <input
-                      type="time"
-                      required
-                      value={formData.time}
-                      onChange={(e) =>
-                        setFormData({ ...formData, time: e.target.value })
-                      }
-                      className={inputClass}
-                    />
+                    <div className="w-full">
+                      <input
+                        type="time"
+                        required
+                        value={formData.time}
+                        onChange={(e) =>
+                          setFormData({ ...formData, time: e.target.value })
+                        }
+                        className={inputClass + " pr-3"}
+                        style={{ WebkitAppearance: "none" }}
+                      />
+                    </div>
                   </div>
 
                   {/* Catatan */}
-                  <div className="md:col-span-2">
+                  <div className="md:col-span-2 w-full">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Permintaan Khusus
                     </label>
@@ -220,7 +226,7 @@ _*Terima kasih, kami akan segera mengkonfirmasi booking Anda.*_`;
                       onChange={(e) =>
                         setFormData({ ...formData, notes: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border"
+                      className="w-full min-w-0 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition box-border"
                       placeholder="Desain yang diinginkan atau preferensi khusus?"
                     />
                   </div>
